@@ -1,0 +1,67 @@
+<div class="container-fluid">
+<form (ngSubmit)="registerParticipant()" [formGroup]="form">
+    <fieldset>
+        <legend>Registration</legend>
+
+        <div class="form-field">
+            <input id="record_id" class="form-control" [(ngModel)]="record_id" formControlName="record_id" placeholder="record_id" required >
+            <div *ngIf="form.controls.record_id.invalid && (form.controls.record_id.dirty || form.controls.record_id.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.record_id.errors" class="alert alert-danger"> record_id is required. </div>         
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input id="redcap_event_name" class="form-control" [(ngModel)]="redcap_event_name" formControlName="redcap_event_name" placeholder="redcap_event_name" required >
+            <div *ngIf="form.controls.redcap_event_name.invalid && (form.controls.redcap_event_name.dirty || form.controls.redcap_event_name.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.redcap_event_name.errors" class="alert alert-danger"> redcap_event_name is required. </div>         
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input id="user_id" class="form-control" [(ngModel)]="user_id" formControlName="user_id" placeholder="user_id" required >
+            <div *ngIf="form.controls.user_id.invalid && (form.controls.user_id.dirty || form.controls.user_id.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.user_id.errors" class="alert alert-danger"> user_id is required. </div>         
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input id="email" class="form-control" [(ngModel)]="email" formControlName="email"  placeholder="email" required>
+            <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.email.errors" class="alert alert-danger"> email is required. </div>         
+            </div>        
+        </div>
+
+        <div class="form-field">
+            <input id="password" class="form-control" [(ngModel)]="password" formControlName="password" placeholder="password" required >
+            <div *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.password.errors" class="alert alert-danger"> password is required. </div>         
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input id="enrollment_date" class="form-control" [(ngModel)]="enrollment_date" formControlName="enrollment_date"  placeholder="enrollment_date" required>
+            <div *ngIf="form.controls.enrollment_date.invalid && (form.controls.enrollment_date.dirty || form.controls.enrollment_date.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.enrollment_date.errors" class="alert alert-danger"> enrollment_date is required. </div>         
+            </div>        
+        </div>
+
+        <div class="form-field">
+            <input id="study_arm" class="form-control" [(ngModel)]="study_arm" formControlName="study_arm"  placeholder="study_arm" required>
+            <div *ngIf="form.controls.study_arm.invalid && (form.controls.study_arm.dirty || form.controls.study_arm.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.study_arm.errors" class="alert alert-danger"> study_arm is required. </div>         
+            </div>        
+        </div>
+
+        <div class="form-field">
+            <input id="registration_complete" class="form-control" [(ngModel)]="registration_complete" formControlName="registration_complete" placeholder="registration_complete" required >
+            <div *ngIf="form.controls.registration_complete.invalid && (form.controls.registration_complete.dirty || form.controls.registration_complete.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.registration_complete.errors" class="alert alert-danger"> registration_complete is required. </div>
+            </div>
+        </div>
+
+    </fieldset>
+
+
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary" >Register</button> 
+</form>
+</div>

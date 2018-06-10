@@ -1,0 +1,9 @@
+<accordion>
+  <accordion-group heading="Protocol - Measures">
+
+  <div *ngFor="let form of protocol"  id="{{form.form_name}}"> 
+    {{form.form_name}} - {{form.field_name}}
+  </div>
+    
+  </accordion-group>
+</accordion>

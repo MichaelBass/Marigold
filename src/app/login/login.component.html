@@ -1,0 +1,22 @@
+
+<div class="container-fluid">
+<form (ngSubmit)="login()" [formGroup]="form">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-field">
+            <input id="email" class="form-control" [(ngModel)]="email" formControlName="email" placeholder="email" required >
+            <div *ngIf="form.controls.email.invalid && (form.controls.email.dirty || form.controls.email.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.email.errors" class="alert alert-danger">  email is required. </div>         
+            </div>
+        </div>
+
+        <div class="form-field">
+            <input name="password" class="form-control" [(ngModel)]="password" formControlName="password" type="password" placeholder="password">
+            <div *ngIf="form.controls.password.invalid && (form.controls.password.dirty || form.controls.password.touched)" class="alert alert-danger">
+                <div *ngIf="form.controls.password.errors" class="alert alert-danger">  password is required. </div>         
+            </div>        
+        </div>
+    </fieldset>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary" >Login</button> 
+</form>
+</div>

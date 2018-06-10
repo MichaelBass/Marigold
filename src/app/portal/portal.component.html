@@ -1,0 +1,12 @@
+
+<div *ngFor="let study of studies" style="width:60%;float:right;border:1px"> 
+  	<table>
+  		<tr>
+  			<td style="width:400px">{{study}}:</td>
+  			<td style="width:100px"><a [routerLink]="['/home', study]"><div>Forms</div> </a></td>
+  			<td style="width:100px"><a [routerLink]="['/events', study]"><div>Events</div> </a></td>
+  			<td style="width:100px"><a [routerLink]="['/login', study]"><div>Login</div> </a></td>
+  			<td style="width:100px"><a [routerLink]="['/registration', study]"><div>Registration</div> </a></td>
+  		</tr>
+  	</table>	
+</div>	

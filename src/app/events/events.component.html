@@ -1,0 +1,9 @@
+<accordion>
+  <accordion-group heading="Events">
+
+  <div *ngFor="let event of events"  id="{{event.custom_event_label}}"> 
+    {{event.arm_num}} - {{event.unique_event_name}} - {{event.offset_max}}
+  </div>
+    
+  </accordion-group>
+</accordion>
