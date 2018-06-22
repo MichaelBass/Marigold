@@ -4,17 +4,20 @@ import { RedcapService} from '../redcap.service';
 import { Router} from "@angular/router";
 import { ActivatedRoute} from "@angular/router";
 import { Participant } from '../participant';
+import { Arm } from '../arm';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
+
 export class RegistrationComponent implements OnInit {
 
    form:FormGroup;
    study: string;
    participant: Participant;
+   arms: Arm[] = new Array();
 
     constructor(private fb:FormBuilder, 
        private redcapService: RedcapService, 
@@ -28,6 +31,12 @@ export class RegistrationComponent implements OnInit {
         this.study = params['id'];
       });
 
+      this.redcapService.getArms(this.study).subscribe(
+        data => {
+          this.arms = data.filter((a) => a.name != 'Configuration');
+        }
+      );
+
       let group: any = {};
       group['record_id'] = new FormControl('record_id', Validators.required);
       group['redcap_event_name'] = new FormControl('redcap_event_name', Validators.required);
@@ -35,7 +44,7 @@ export class RegistrationComponent implements OnInit {
       group['email'] = new FormControl('email', Validators.required);
       group['password'] = new FormControl('password', Validators.required);
 	    group['enrollment_date'] = new FormControl('enrollment_date', Validators.required);
-	    group['study_arm'] = new FormControl('study_arm', Validators.required);
+	    group['study_arm'] = new FormControl('study_arm', [Validators.required,Validators.min(2)]);
 	    group['registration_complete'] = new FormControl('registration_complete', Validators.required);
 
       this.form = new FormGroup(group);

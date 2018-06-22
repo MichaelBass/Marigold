@@ -46,7 +46,16 @@
         </div>
 
         <div class="form-field">
-            <input id="study_arm" class="form-control" [(ngModel)]="study_arm" formControlName="study_arm"  placeholder="study_arm" required>
+
+            <!--
+            <input id="study_arm" class="form-control" [(ngModel)]="study_arm" formControlName="study_arm"  placeholder="study_arm" required>-->
+
+            <select id="study_arm" class="form-control" [(ngModel)]="study_arm" formControlName="study_arm" required>
+             <option [value]="">-- select an arm --</option>
+             <option *ngFor="let arm of arms" [value]="arm.arm_num">{{arm.name}}</option>
+            </select>
+
+
             <div *ngIf="form.controls.study_arm.invalid && (form.controls.study_arm.dirty || form.controls.study_arm.touched)" class="alert alert-danger">
                 <div *ngIf="form.controls.study_arm.errors" class="alert alert-danger"> study_arm is required. </div>         
             </div>        

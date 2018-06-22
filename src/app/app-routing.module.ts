@@ -5,6 +5,7 @@ import { PortalComponent } from './portal/portal.component';
 import { LoginComponent } from './login/login.component';
 import { EventsComponent } from './events/events.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/portal', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'portal', component: PortalComponent },
   { path: 'login/:id', component: LoginComponent },
   { path: 'events/:id', component: EventsComponent },
-  { path: 'registration/:id', component: RegistrationComponent }  
+  { path: 'registration/:id', component: RegistrationComponent },
+  { path: 'dashboard/:id', component: DashboardComponent }  
 ];
 
 @NgModule({
